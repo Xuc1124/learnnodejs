@@ -55,7 +55,7 @@ rs.on('error',function(err){
 	console.log('ERROE:'+err);
 })*/
 
-var ws = fs.createWriteStream('output.txt', 'utf-8');
+/*var ws = fs.createWriteStream('output.txt', 'utf-8');
 ws.write('use stream to write text data...\n');
 ws.write('END');
 ws.end();
@@ -63,4 +63,19 @@ ws.end();
 var ws2 = fs.createWriteStream('output2.txt', 'utf-8');
 ws2.write(new Buffer('use stream to write binary data...\n'),'utf-8');
 ws2.write(new Buffer('END'),'uft-8');
-ws2.end();
+ws2.end();*/
+
+
+/*var rs = fs.createReadStream('sample.txt');
+var ws = fs.createWriteStream('copied.txt');
+rs.pipe(ws);*/
+
+var rs = fs.createReadStream('sample.txt','utf-8');
+rs.on('data',function(chunk){
+	console.log('DATA:');
+	console.log(chunk);
+});
+rs.on('data',function(chunk){
+	console.log('DATA1:');
+	console.log(chunk);
+})
